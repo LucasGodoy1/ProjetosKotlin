@@ -4,7 +4,7 @@ import LucasGodoy1.com.github.alugames.modelo.Gamer
 
 fun main(){
 
-    val gamer1 = Gamer("   ", "lucas@email.com")
+    val gamer1 = Gamer("Lucas", "lucas@email.com")
     val gamer2 = Gamer("Lucas", "lucas@email.com", "14/11/196","LucasGodoy1")
 
     println(gamer1)
