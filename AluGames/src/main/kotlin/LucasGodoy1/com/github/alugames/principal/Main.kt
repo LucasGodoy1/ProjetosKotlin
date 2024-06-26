@@ -55,8 +55,35 @@ fun main() {
         println("Dseja Buscar outra jogo? [S / N]")
         val resposta  = sc.nextLine()
     } while(resposta.equals("s", true))
-    sc.close()
     println("Jogos Buscados: ")
     println(gamer.jogosBuscados)
+
+    println("\nJogos Ordenados por Titulo")
+    gamer.jogosBuscados.sortBy {
+        it?.titulo
+    }
+
+    gamer.jogosBuscados.forEach { t -> println("Titulo: ${t?.titulo} \n =-=-=-=-=-=-=-=-=-=-=-=-=-") }
+
+    val jogosFiltrados = gamer.jogosBuscados.filter { jogo ->
+        jogo?.titulo?.contains("batman", true) ?: false
+    }
+
+    println("Jogos Filtrados: ")
+    println(jogosFiltrados)
+
+    println("Deseja excluir algum jogo da lista original? S/N")
+    val opcao = sc.nextLine()
+    if (opcao.equals("s", true)) {
+        println("\n Informe a posição do jogo que deseja excluir: ")
+        val posicao = sc.nextInt()
+        gamer.jogosBuscados.removeAt(posicao)
+    }
+
+    println("\n Lista atualizada:")
+    println(gamer.jogosBuscados)
+
+
+    sc.close()
 
 }
